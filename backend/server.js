@@ -1,6 +1,7 @@
 //Packages import
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const cloudinary = require("cloudinary");
 
 //Files import
 const app = require("./app");
@@ -27,6 +28,12 @@ dotenv.config({ path: "backend/config/config.env" });
 
 // Connecting to database
 mongoDatabase();
+
+cloudinary.v2.config({
+	cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+	api_key: process.env.CLOUDINARY_API_KEY,
+	api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error: "));
 db.once("open", () => {

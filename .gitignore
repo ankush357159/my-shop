@@ -3,10 +3,13 @@ node_modules/
 jspm_packages/
 
 # dotenv environment variables file
+config/
 .env
 .env.test
 .env.production
 config.env
+/config
+/config/
 
 # Optional npm cache directory
 .npm
